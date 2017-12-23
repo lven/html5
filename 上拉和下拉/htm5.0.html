@@ -1,0 +1,147 @@
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>小程序</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" href="css/app.css" />
+		<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<header class="header blue" id="header">
+			<div class="go-back" id="go-back"></div>
+			<h1 class="head-tlt" id="htitle">小程序</h1>
+		</header>
+		<div class="container">
+			<h2>模拟鼠标上滑和下滑 </h2>
+			<ul class="box1">
+				<li>0.建立一个滚动区</li>
+				<li>1.对touch事件进行监听</li>
+			</ul>
+
+			<div class="scrollArea">
+				<div class="content">
+					<p >
+						巧妙、惊人的情节交错，让这部小说值得瞩目，这不仅是一部政治史诗，也是一个关于童年选择如何影响我们成年生活的极度贴近人性的故事。单就书中的角色刻画来看，这部初试啼声之作就已值得一读。从敏感、缺乏安全感的阿米尔到他具有多层次性格的父亲，直到阿米尔回到阿富汗之后才逐步揭露父亲的牺牲与丑闻，也才了解历史在美国和中东的分岔……这些内容缔造了一部完整的文学作品，将这个过去不引人注意、在新千年却成为全球政治焦点的国家的文化呈现在世人面前。同时兼具时代感与高度文学质感，极为难能可贵。</p>
+					<div class="right bold">——《人物》</div>
+					<p>	凡夫俗子在历史狂涛里的独力奋斗，一部非比寻常的小说。</p>
+				
+					<div class="right bold">——《出版商周刊》</div>
+					<p>
+						本书偏重个人的情节，从阿米尔与他父亲仆人儿子哈桑的亲密友谊开始，这段感情成为贯穿全书的脉络。这两个男孩所放的风筝，象征了他们之间关系的脆弱，在往日生活消逝之际，备受考验。作者笔下的阿富汗温馨闲适，却因为不同种族之间的摩擦而出现紧张。书中充满令人回萦难忘的景象：一个为了喂饱孩子的男人在市场上出售他的义腿；足球赛中场休息时间，一对通奸的情侣在体育场上活活被石头砸死；一个涂脂抹粉的男孩被迫出卖身体，跳着以前街头手风琴艺人的猴子表演的舞步。
+					</p>
+				</div>
+			</div>
+			
+			<div class="console.info">
+				
+			</div>
+	</body>
+
+</html>
+<script>
+	
+;(function($){
+    'use strict';
+    
+    $.fn.scroll=function(Option){
+    	return new  Scroll(this,Option);
+    }
+    
+    function Scroll (element,Option){
+    	var me=this;
+    	me.$element=element;
+    	me.direction="";
+    	me.distance="";
+    	
+    	
+    	me.$element.on("touchstart",function(e){
+			me.start_Y=e.originalEvent.changedTouches["0"].clientY;
+			console.info(e);
+		})
+    	
+    	
+    	me.$element.on("touchend",function(e){
+			me.now_Y=e.originalEvent.changedTouches["0"].clientY;
+			//判断是往上还是往下.
+			me.distance=Math.abs(me.now_Y-me.start_Y);
+			if(me.now_Y-me.start_Y>0){
+				me.direction="down"
+			}else{
+				me.direction="up"
+			}
+			
+			console.info("往"+me.direction+"移动了"+me.distance);
+		})
+    	
+    	
+    	
+    }
+    
+    
+    
+    
+})(window.Zepto || window.jQuery);
+	
+	
+
+	
+$(function(){
+	$(".scrollArea").scroll();
+})
+	
+</script>
+
+
+
+
+<style type="text/css">
+	ul>li {
+		margin-bottom: 10px;
+	}
+	
+	ul>li:last-child {
+		margin-bottom: 0;
+	}
+	
+	.scrollArea {
+		width: 100%;
+		height: 500px;
+		background-color: #F6F4EC;
+		overflow: scroll;
+		padding: 10px 30px;
+	}
+	
+	
+	h1, h2, h3, h4, h5, h6, p, blockquote {
+    word-wrap: break-word;
+}
+	
+	.content p {
+	    text-indent: 2em;
+	    line-height: 2;
+	    min-height: 2em;
+	    text-align: justify;
+	    text-justify: inter-ideograph;
+	    -ms-text-justify: inter-ideograph;
+	    text-autospace: ideograph-alpha;
+	    -webkit-hyphens: auto;
+	    -moz-hyphens: auto;
+	    -ms-hyphens: auto;
+	    hyphens: auto;
+	    white-space: pre-line;
+	}
+	
+	.content .bold {
+		font-weight: bold;
+	}
+	
+	.content .right {
+		text-align: right;
+	}
+	.content .left {
+		text-align: right;
+	}
+</style>

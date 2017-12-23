@@ -1,0 +1,159 @@
+/*盒子模型*/
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    -ms-touch-action: none;
+     font-family: "Microsoft YaHei";
+     /* font-family:STXihei,\534E\6587\7EC6\9ED1 */	
+}
+
+body,ul,li,dl,p{
+    padding: 0;
+    margin: 0;
+    border: 0;
+     
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: blink;
+}
+
+/*按钮点击阴影去除*/
+a,img,button,input,textarea{
+	-webkit-tap-highlight-color: transparent;
+}
+
+/*{
+ -webkit-backface-visibility: hidden;
+-webkit-transform-style: preserve-3d;
+}*/
+
+
+/******************** 文本设置 *************************************/
+h1,h2,h3,h4,h5 {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+/******************** end *************************************/
+
+/*浮动布局—*/
+.c-row {
+	*zoom: 1
+}
+
+.c-row:after {
+	display: block;
+	height: 0;
+	content: "";
+	clear: both;
+	visibility: hidden;
+}
+
+/*End 浮动布局—*/
+
+/*** 公用头部 start ***/
+
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 44px;
+	color: #333;
+	background: #fff;
+	text-align: center;
+	padding: 0;
+	display: box;
+	display: -moz-box;
+	display: -webkit-box;
+	line-height: 44px;
+	overflow: hidden;
+	border-bottom: solid 1px #e0e0e0;
+	z-index: 999;
+}
+
+.header.blue {
+	background: #0e84eb;
+	color: #fff;
+	border: none;
+}
+
+.header .go-back {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 44px;
+	height: 44px;
+}
+
+.header .go-back:after {
+	content: "";
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	border-left: solid 1px #333;
+	border-bottom: solid 1px #333;
+	transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+}
+
+.header.blue .go-back:after {
+	border-left: solid 1px #fff;
+	border-bottom: solid 1px #fff;
+}
+
+.header h1 {
+	height: 44px;
+	font-size: 17px;
+	line-height: 45px;
+	box-flex: 1;
+	-moz-box-flex: 1;
+	-webkit-box-flex: 1;
+	font-weight: normal;
+	margin: 0;
+}
+
+.has-head .weui-tab__panel {
+	padding-top: 44px;
+	padding-bottom: 54px;
+	position: relative;
+	overflow-y: auto;
+}
+
+.has-head .container {
+	padding-top: 44px;
+	position: relative;
+	overflow-y: auto;
+}
+
+.container{
+	margin-top: 50px;
+}
+
+/*** 公用头部 end ***/
+
+/*功能  start     */
+.box1 {
+	border: 1px solid #ccc;
+	padding: 12px 5px;
+	background-color: #fbfbfb;
+	border-left-width: 4px;
+	margin:5px ;
+}
+
+body{
+	background-color: #fafafa;
+}
